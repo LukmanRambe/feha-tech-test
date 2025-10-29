@@ -1,0 +1,117 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "airbnb-base",
+    "next/core-web-vitals",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "no-console": "off",
+    "object-shorthand": "off",
+    "no-unsafe-optional-chaining": "off",
+    "array-callback-return": "off",
+    "no-param-reassign": "off",
+    "no-nested-ternary": "off",
+    "no-sequences": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "extends": [
+        "airbnb-typescript",
+        "next/core-web-vitals",
+        "plugin:prettier/recommended"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": "./tsconfig.json",
+        "tsconfigRootDir": "./client"
+      },
+      "plugins": ["@typescript-eslint", "unused-imports"],
+      "rules": {
+        "import/extensions": [
+          "error",
+          "ignorePackages",
+          {
+            "js": "never",
+            "jsx": "never",
+            "ts": "never",
+            "tsx": "never"
+          }
+        ],
+        "import/resolver": {
+          "typescript": {
+            "alwaysTryTypes": true,
+            "project": "./client/tsconfig.json"
+          }
+        },
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-filename-extension": [
+          2,
+          { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+        ],
+        "react/function-component-definition": [
+          2,
+          {
+            "namedComponents": ["arrow-function"],
+            "unnamedComponents": ["function-expression", "arrow-function"]
+          }
+        ],
+        "react/destructuring-assignment": "off",
+        "jsx-a11y/anchor-is-valid": "off",
+        "react-hooks/exhaustive-deps": "off",
+        "react/require-default-props": "off",
+        "react/jsx-props-no-spreading": "off",
+        "import/prefer-default-export": "off",
+        "class-methods-use-this": "off",
+        "no-unused-vars": "off",
+        "@next/next/no-document-import-in-page": "off",
+        "@typescript-eslint/no-explicit-any": "error",
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/no-shadow": "off",
+        "unused-imports/no-unused-imports": "error",
+        "unused-imports/no-unused-vars": [
+          "error",
+          { "argsIgnorePattern": "^_" }
+        ],
+        "react/jsx-no-bind": [
+          "error",
+          {
+            "ignoreDOMComponents": false,
+            "ignoreRefs": false,
+            "allowArrowFunctions": true,
+            "allowFunctions": true,
+            "allowBind": false
+          }
+        ],
+        "import/order": [
+          "error",
+          {
+            "groups": ["builtin", "external", "internal", "sibling"],
+            "pathGroups": [
+              {
+                "pattern": "react",
+                "group": "external",
+                "position": "before"
+              }
+            ],
+            "pathGroupsExcludedImportTypes": ["react"],
+            "newlines-between": "always",
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
